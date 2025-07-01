@@ -74,7 +74,7 @@ class StatusRumahPage extends Component
             ['skor_rumah' => $skor, 'tanggal_penilaian' => now()]
         );
 
-        // 🔥 Hitung total setiap kali ada perubahan
+        //  Hitung total setiap kali ada perubahan
         // $penilaian->hitungTotalDanStatus();
         Penilaian::hitungSAWPerPenerima($this->kode_penerima);
 
@@ -88,7 +88,7 @@ class StatusRumahPage extends Component
         {
             $skor = 0;
 
-            // 🔸 Status Rumah
+            // Status Rumah
             if ($this->id_status_rumah == 1) {
                 $skor += 1; // Milik Sendiri
             } elseif ($this->id_status_rumah == 2) {
@@ -99,7 +99,7 @@ class StatusRumahPage extends Component
                 $skor += 4; // Kontrak
             }
 
-            // 🔸 Jenis Rumah
+            //  Jenis Rumah
             if ($this->id_jenis == 1) {
                 $skor += 1; // Permanen
             } elseif ($this->id_jenis == 2) {
@@ -108,7 +108,7 @@ class StatusRumahPage extends Component
                 $skor += 5; // Non Permanen
             }
 
-            // 🔸 Kondisi Rumah
+            //  Kondisi Rumah
             if ($this->id_kondisi == 1) {
                 $skor += 1; // Baik
             } elseif ($this->id_kondisi == 2) {
@@ -117,7 +117,7 @@ class StatusRumahPage extends Component
                 $skor += 5; // Rusak
             }
 
-            // 🔸 Luas Rumah
+            //  Luas Rumah
             if ($this->luas_rumah >= 70) {
                 $skor += 1;
             } elseif ($this->luas_rumah >= 40) {
@@ -126,7 +126,7 @@ class StatusRumahPage extends Component
                 $skor += 5;
             }
 
-            // 🔸 Jumlah Penghuni
+            //  Jumlah Penghuni
             if ($this->jumlah_penghuni >= 6) {
                 $skor += 5;
             } elseif ($this->jumlah_penghuni >= 4) {

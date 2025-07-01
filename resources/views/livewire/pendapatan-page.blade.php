@@ -1,6 +1,7 @@
 <div>
     <main id="main" class="main">
 
+        {{-- Title dan Breadcrumb --}}
         <div class="pagetitle">
             <h1>Data Pendapatan</h1>
             <nav>
@@ -11,25 +12,28 @@
             </nav>
         </div>
 
+        {{-- Notifikasi --}}
         @if (session()->has('message'))
             <div class="alert alert-success alert-dismissible fade show">
-                <i class="bi bi-check-circle me-1"></i>
                 {{ session('message') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
             </div>
         @endif
 
+        {{-- Form Input Pendapatan --}}
         <section class="section">
             <div class="card">
                 <div class="card-body pt-3">
                     <h5 class="card-title">Form Pendapatan</h5>
 
                     <form wire:submit.prevent="simpan" class="row g-3">
+                        {{-- Input Kode --}}
                         <div class="col-md-6">
                             <label class="form-label">Kode Pendapatan</label>
                             <input type="text" wire:model="kode_pendapatan" class="form-control" readonly>
                         </div>
 
+                        {{-- Select Penerima --}}
                         <div class="col-md-6">
                             <label class="form-label">Penerima</label>
                             <select wire:model="kode_penerima" class="form-select">
@@ -42,6 +46,7 @@
                             </select>
                         </div>
 
+                        {{-- Select Profesi --}}
                         <div class="col-md-6">
                             <label class="form-label">Profesi</label>
                             <select wire:model="kode_profesi" class="form-select">
@@ -54,11 +59,13 @@
                             </select>
                         </div>
 
+                        {{-- Input Pendapatan --}}
                         <div class="col-md-6">
                             <label class="form-label">Pendapatan Bulanan (Rp)</label>
                             <input type="number" wire:model="pendapatan_bulanan" class="form-control">
                         </div>
 
+                        {{-- Tombol --}}
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary">Simpan</button>
                             <button type="button" wire:click="resetInput" class="btn btn-secondary">Reset</button>
@@ -67,6 +74,7 @@
                 </div>
             </div>
 
+            {{-- Table List --}}
             <div class="card">
                 <div class="card-body pt-3">
                     <h5 class="card-title">Daftar Pendapatan</h5>
@@ -106,6 +114,7 @@
                         </tbody>
                     </table>
 
+                    {{-- Pagination --}}
                     {{ $data_pendapatan->links() }}
                 </div>
             </div>
