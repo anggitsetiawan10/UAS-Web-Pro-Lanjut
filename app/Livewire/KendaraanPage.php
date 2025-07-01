@@ -1,6 +1,7 @@
 <?php
 //  Komponen Livewire untuk mengelola data kendaraan penerima bantuan
 namespace App\Livewire;
+use Livewire\Attributes\Layout;
 
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -12,6 +13,7 @@ use App\Models\Penilaian;
 class KendaraanPage extends Component
 {
     use WithPagination;
+    #[Layout('components.layouts.app')]
 
     //  Tema pagination
     protected $paginationTheme = 'bootstrap';
